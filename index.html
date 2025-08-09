@@ -1,0 +1,269 @@
+<!--
+index.html
+A single-file, responsive, modern website template you can host for FREE on GitHub Pages / Netlify / Cloudflare Pages.
+
+How to use:
+1. Open this file in the canvas code editor, edit the content (site title, about text, services, contact email).
+2. Save and download the file (or copy-paste) and upload to a GitHub repository or drag-and-drop to Netlify.
+3. Connect your GoDaddy domain to your chosen host (Netlify/GitHub Pages/Cloudflare Pages) via DNS. I will guide you step-by-step when you are ready.
+
+Notes:
+- The contact form uses a `mailto:` fallback so it works without a backend. If you want a real form endpoint later, I can integrate a free form provider (Formspree, Getform, Netlify Forms).
+- Replace placeholder images and text with your own.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A clean, fast, responsive website — ready to host for free.">
+  <title>Your Site Name — Tagline</title>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo="> <!-- tiny placeholder favicon -->
+
+  <!-- Open Graph (for social previews) -->
+  <meta property="og:title" content="Your Site Name">
+  <meta property="og:description" content="Short description of your site">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content=""> <!-- add a full URL to an image after deploy -->
+
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy background */
+      --card:#0b1220;
+      --accent:#06b6d4; /* turquoise */
+      --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --maxw:1100px;
+      --gap:1.25rem;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,var(--bg),#071022 80%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:2rem 1rem;
+    }
+    .container{max-width:var(--maxw);margin:0 auto}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:2rem}
+    .brand{display:flex;align-items:center;gap:.8rem}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .brand h1{font-size:1.05rem;margin:0}
+    nav{display:flex;gap:1rem;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:.45rem .7rem;border-radius:10px}
+    nav a:hover{color:#fff;background:var(--glass)}
+    .cta{background:linear-gradient(90deg,var(--accent),#7c3aed);padding:.6rem .9rem;border-radius:12px;color:#02111a;text-decoration:none;font-weight:600}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center;margin-bottom:2rem}
+    .hero .eyebrow{color:var(--accent);font-weight:700;margin-bottom:.5rem}
+    .hero h2{font-size:2rem;margin:.1rem 0}
+    .hero p{color:var(--muted);margin:0 0 1rem}
+    .features{display:flex;gap:1rem;flex-wrap:wrap}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1rem;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .card small{display:block;color:var(--muted)}
+
+    /* Right side preview */
+    .mock{background:linear-gradient(180deg,#031026 60%, rgba(0,0,0,0));padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .mock .phone{width:100%;height:600px;border-radius:10px;background:linear-gradient(180deg,#071126,#041022);display:flex;flex-direction:column;justify-content:center;align-items:center;color:var(--muted);}
+
+    /* Sections */
+    section{margin:2rem 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+    .grid.two{grid-template-columns:1fr 1fr}
+
+    footer{margin-top:3rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width:920px){
+      .hero{grid-template-columns:1fr;}
+      .mock .phone{height:360px}
+      .grid{grid-template-columns:1fr}
+      nav{display:none}
+      header{align-items:flex-start}
+    }
+
+    /* Contact form */
+    form{display:grid;gap:.75rem}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:.7rem;border-radius:10px;color:inherit}
+    input::placeholder,textarea::placeholder{color:var(--muted)}
+    button{background:var(--accent);border:none;padding:.7rem 1rem;border-radius:10px;font-weight:700;color:#02111a}
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:.25rem .5rem;border-radius:999px;background:rgba(255,255,255,0.03);font-size:.85rem}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">YS</div>
+        <div>
+          <h1>Your Site Name</h1>
+          <div class="muted">Your short tagline goes here</div>
+        </div>
+      </div>
+
+      <nav aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#contact">Get in touch</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Fast — Responsive — Free</div>
+          <h2>Build a modern website without hosting costs.</h2>
+          <p>You're a few steps away from a live, professional website. Hosted for free on GitHub Pages, Netlify, or Cloudflare Pages. Fully customizable.</p>
+
+          <div class="features">
+            <div class="card" style="min-width:180px">
+              <small>Responsive</small>
+              <strong>Looks great on mobile & desktop</strong>
+            </div>
+            <div class="card" style="min-width:180px">
+              <small>Customizable</small>
+              <strong>Change colors, text & images</strong>
+            </div>
+            <div class="card" style="min-width:180px">
+              <small>Free Hosting</small>
+              <strong>Deploy to GitHub Pages / Netlify</strong>
+            </div>
+          </div>
+
+          <div style="margin-top:1rem">
+            <a class="cta" href="#contact">Start now — it's free</a>
+          </div>
+        </div>
+
+        <div class="mock card">
+          <div class="phone">
+            <div style="text-align:center;max-width:260px">
+              <h3 style="margin:0">Your Site Preview</h3>
+              <p class="muted" style="margin:.5rem 0 1rem">Replace this image with your own screenshot or leave as-is.</p>
+              <div style="display:flex;gap:.5rem;justify-content:center">
+                <span class="pill">Portfolio</span>
+                <span class="pill">About</span>
+                <span class="pill">Contact</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="card">
+          <h3>About</h3>
+          <p class="muted">Write 2–3 short paragraphs about who you are, what you do, and why visitors should care. Keep it simple and scannable.</p>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services">
+        <h3>Services</h3>
+        <div class="grid" style="margin-top:.75rem">
+          <div class="card">
+            <h4>Service One</h4>
+            <p class="muted">Short explanation of service one.</p>
+          </div>
+          <div class="card">
+            <h4>Service Two</h4>
+            <p class="muted">Short explanation of service two.</p>
+          </div>
+          <div class="card">
+            <h4>Service Three</h4>
+            <p class="muted">Short explanation of service three.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK / PORTFOLIO -->
+      <section id="work">
+        <h3>Selected work</h3>
+        <div class="grid two" style="margin-top:.75rem">
+          <div class="card"> <strong>Project A</strong><p class="muted">A one-line description. Add images by replacing this block.</p></div>
+          <div class="card"> <strong>Project B</strong><p class="muted">A one-line description.</p></div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h3>Contact</h3>
+        <div class="grid two" style="margin-top:.75rem">
+          <div class="card">
+            <p class="muted">Prefer email? Use the form and it will open your email client with the message ready to send.</p>
+            <form id="contactForm">
+              <input id="name" name="name" placeholder="Your name" required>
+              <input id="email" name="email" type="email" placeholder="Your email" required>
+              <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+              <div style="display:flex;gap:.5rem">
+                <button type="submit">Send email</button>
+                <a class="pill" href="mailto:youremail@example.com">Or email directly</a>
+              </div>
+            </form>
+
+            <script>
+              document.getElementById('contactForm').addEventListener('submit', function(e){
+                e.preventDefault();
+                const name = encodeURIComponent(document.getElementById('name').value.trim());
+                const email = encodeURIComponent(document.getElementById('email').value.trim());
+                const message = encodeURIComponent(document.getElementById('message').value.trim());
+                const subject = encodeURIComponent('Website contact from ' + name);
+                const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + decodeURIComponent(message));
+                // open user's mail client
+                window.location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
+              })
+            </script>
+
+          </div>
+
+          <div class="card">
+            <h4>Details</h4>
+            <p class="muted">Address: Your city, Country</p>
+            <p class="muted">Phone: +00 000 000 000</p>
+            <p class="muted">Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+            <div style="margin-top:1rem">
+              <strong>Follow</strong>
+              <div style="display:flex;gap:.5rem;margin-top:.5rem">
+                <a class="pill" href="#">Twitter</a>
+                <a class="pill" href="#">LinkedIn</a>
+                <a class="pill" href="#">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Your Site Name</div>
+      <div class="muted">Built with ❤️ — Hosted for free</div>
+    </footer>
+  </div>
+
+  <script>
+    // small helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // keyboard accessibility for mailto fallback (optional)
+  </script>
+</body>
+</html>
